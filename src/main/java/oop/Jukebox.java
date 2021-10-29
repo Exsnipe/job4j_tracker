@@ -3,7 +3,7 @@ package oop;
 public class Jukebox {
     public void music(int position) {
         if (position == 1) {
-            System.out.println("Пусть бегут неуклюже пещехожы по лужам, а вода по асфальту рекой...");
+            System.out.println("Пусть бегут неуклюже пещехожы по лужам...");
         } else if (position == 2) {
             System.out.println("Спокойной ноч, малыши");
         } else {
