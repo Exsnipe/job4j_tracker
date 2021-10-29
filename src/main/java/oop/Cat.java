@@ -3,6 +3,7 @@ package oop;
 public class Cat {
     private String food;
     private String name;
+
     public void show() {
         System.out.println("name of cat is " + this.name);
         System.out.println(name + " eats " + this.food);
