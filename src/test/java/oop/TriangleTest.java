@@ -28,4 +28,14 @@ public class TriangleTest {
         double rsl = triangl.area();
         assertThat(rsl, closeTo(6, 0.001));
     }
+
+    @Test
+    public void area3() {
+        Point a  = new Point(0, 0);
+        Point b = new Point(0, 16);
+        Point c = new Point(0, 17);
+        Triangle triangl = new Triangle(a, b, c);
+        double rsl = triangl.area();
+        assertThat(rsl, closeTo(-1, 0.001));
+    }
 }
