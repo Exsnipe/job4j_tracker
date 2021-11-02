@@ -5,6 +5,6 @@ public class ReportUsage {
         TextReport textReport = new TextReport();
         System.out.println(textReport.generate("name", "body"));
         JSONReport jsRep = new JSONReport();
-        System.out.println(jsRep.generate("name", "body"));
+        System.out.println(jsRep.generate("Ivan", "Hi there"));
     }
 }
