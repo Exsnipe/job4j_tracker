@@ -1,13 +1,11 @@
 package professions;
 
 public class Surgeon extends Doctor {
-    private String name;
-    private String surname;
-    private String education;
-    private int birthday;
+    private int amountSurgerys;
 
-    public Surgeon(String name, String surname, String education, int birthday) {
-        super(name, surname, education, birthday);
+    public Surgeon(String name, String surname, String education, int birthday, String spec, int amountSurgerys) {
+        super(name, surname, education, birthday, spec);
+        this.amountSurgerys =  amountSurgerys;
     }
 
     public Pacient makeSurgery(Pacient pacient) {

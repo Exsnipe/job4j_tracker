@@ -1,13 +1,11 @@
 package professions;
 
 public class Dentist extends Doctor {
-    private String name;
-    private String surname;
-    private String education;
-    private int birthday;
+   private int seniority;
 
-    public Dentist(String name, String surname, String education, int birthday) {
-        super(name, surname, education, birthday);
+    public Dentist(String name, String surname, String education, int birthday, String spec, int seniority) {
+        super(name, surname, education, birthday, spec);
+        this.seniority = seniority;
     }
 
     public Pacient treatTooth(Pacient pacient) {

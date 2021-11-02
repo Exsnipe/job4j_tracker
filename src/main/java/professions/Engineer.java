@@ -1,13 +1,11 @@
 package professions;
 
 public class Engineer extends Profession {
-    private String name;
-    private String surname;
-    private String eduucation;
-    private int birthday;
+   int seniority;
 
-    public Engineer(String name, String surname, String eduucation, int birthday) {
+    public Engineer(String name, String surname, String eduucation, int birthday, int seniority) {
         super(name, surname, eduucation, birthday);
+        this.seniority = seniority;
     }
 
     public Task makeTask(String ttz) {
