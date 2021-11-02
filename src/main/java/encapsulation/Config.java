@@ -3,7 +3,7 @@ package encapsulation;
 public class Config {
     private String name;
     private int position;
-    public String[] properties;
+    private String[] properties;
 
     public Config(String name) {
         this.name = name;
