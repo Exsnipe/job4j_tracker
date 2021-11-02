@@ -3,7 +3,8 @@ package professions;
 public class Programmer extends Engineer {
     private String status;
 
-    public Programmer(String name, String surname, String eduucation, int birthday,  int seniority, String status) {
+    public Programmer(String name, String surname, String eduucation, int birthday,  int seniority,
+                      String status) {
         super(name, surname, eduucation, birthday, seniority);
         this.status = status;
     }
