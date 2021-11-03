@@ -11,21 +11,21 @@ public class Library {
         masBook[1] = headJava;
         masBook[2] = harryPotter;
         masBook[3] = anneFromGB;
-        for (int i = 0; i < masBook.length; i++) {
-            System.out.println("Book: " + masBook[i].getName() + " Has "
-                    + masBook[i].getPageAmount() + " pages");
+        for (Book element : masBook) {
+            System.out.println("Book: " + element.getName() + " Has "
+                    + element.getPageAmount() + " pages");
         }
         Book buf = masBook[0];
         masBook[0] = masBook[3];
         masBook[3] = buf;
         System.out.println("");
-        for (int i = 0; i < masBook.length; i++) {
-            System.out.println("Book: " + masBook[i].getName() + " Has "
-                    + masBook[i].getPageAmount() + " pages");
+        for (Book element : masBook) {
+            System.out.println("Book: " + element.getName() + " Has "
+                    + element.getPageAmount() + " pages");
         }
-        for (int i = 0; i < masBook.length; i++) {
-            if (masBook[i].getName().equals("Clean code")) {
-                System.out.println(masBook[i].getName() + " " + masBook[i].getPageAmount());
+        for (Book element : masBook) {
+            if ("Clean code".equals(element.getName())) {
+                System.out.println(element.getName() + " " + element.getPageAmount());
             }
         }
     }
