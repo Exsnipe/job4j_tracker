@@ -2,7 +2,6 @@ package io;
 
 import java.util.Scanner;
 import java.util.Random;
-//import java.lang.Math;
 
 public class MagicBall {
     public static void main(String[] args) {
