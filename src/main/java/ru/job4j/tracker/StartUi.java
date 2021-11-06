@@ -36,6 +36,15 @@ public class StartUi {
                 } else {
                     System.out.println("There are no items with such id!");
                 }
+            } else if (select == 3) {
+                System.out.println("=== Delete item ===");
+                System.out.print("press id of item you want to delete: ");
+                boolean deleted =  tracker.delete(Integer.parseInt(scanner.nextLine()));
+                if (deleted) {
+                    System.out.println("succed");
+                } else {
+                    System.out.println("There are no items with such id!");
+                }
             } else if (select == 6) {
                 run = false;
             }
