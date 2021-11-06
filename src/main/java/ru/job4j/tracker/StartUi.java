@@ -15,6 +15,16 @@ public class StartUi {
                 Item item = new Item(scanner.nextLine());
                 tracker.add(item);
                 System.out.println("Item added " + item);
+            } else if (select == 1) {
+                System.out.println("=== Show all items ===");
+                Item[] allFiles = tracker.findAll();
+                if (allFiles.length > 0) {
+                    for (Item item : allFiles) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("There are no items in storage");
+                }
             } else if (select == 6) {
                 run = false;
             }
