@@ -25,6 +25,17 @@ public class StartUi {
                 } else {
                     System.out.println("There are no items in storage");
                 }
+            } else if (select == 2) {
+                System.out.println("=== Edit item ==");
+                System.out.print("press id of item you want to replace: ");
+                int currentId = Integer.parseInt(scanner.nextLine());
+                System.out.print("press name of new item: ");
+                Item item = new Item(scanner.nextLine());
+                if (tracker.replace(currentId, item)) {
+                    System.out.println("suссed");
+                } else {
+                    System.out.println("There are no items with such id!");
+                }
             } else if (select == 6) {
                 run = false;
             }
