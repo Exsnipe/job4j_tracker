@@ -8,11 +8,14 @@ public class StartUi {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.println("Select: ");
+            System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select != 6) {
-                System.out.println("You have  chose: " + select + System.lineSeparator());
-            } else {
+            if (select == 0) {
+                System.out.print("Enter name of new Item: ");
+                Item item = new Item(scanner.nextLine());
+                tracker.add(item);
+                System.out.println("Item added " + item);
+            } else if (select == 6) {
                 run = false;
             }
         }
