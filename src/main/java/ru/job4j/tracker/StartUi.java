@@ -45,6 +45,16 @@ public class StartUi {
                 } else {
                     System.out.println("There are no items with such id!");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Find item by id ===");
+                System.out.println("press id of item you want to find");
+                Item finded = tracker.findById(Integer.parseInt(scanner.nextLine()));
+                if (finded != null) {
+                    System.out.println("your item is: ");
+                    System.out.println(finded);
+                } else {
+                    System.out.println("There are no items with such id!");
+                }
             } else if (select == 6) {
                 run = false;
             }
