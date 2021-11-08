@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Item {
+    private final DateTimeFormatter form = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
@@ -21,7 +22,6 @@ public class Item {
 
     @Override
     public String toString() {
-        DateTimeFormatter form = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formatCreated = created.format(form);
         return "Item{"
                 + "id=" + id
