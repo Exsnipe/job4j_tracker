@@ -1,15 +1,7 @@
 package poly;
 
-public class Bus implements Vechicle {
-    private int fuel = 200;
-
-    public Bus() {
-
-    }
-
-    public Bus(int fuel) {
-        this.fuel = fuel;
-    }
+public class Train implements Vechicle {
+    private int fuel = 2000;
 
     @Override
     public void move() {
