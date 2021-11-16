@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class StartUi {
 
-    public void init(ConsoleInput consoleInput, Tracker tracker) {
+    public void init(Input consoleInput, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
@@ -27,7 +27,7 @@ public class StartUi {
         }
     }
 
-    public static void addNewItem(ConsoleInput consoleInput, Tracker tracker) {
+    public static void addNewItem(Input consoleInput, Tracker tracker) {
         Item item = new Item(consoleInput.askStr("Enter name of new Item: "));
         tracker.add(item);
         System.out.println("Item added " + item);
@@ -45,7 +45,7 @@ public class StartUi {
         }
     }
 
-    public static void editItem(ConsoleInput consoleInput, Tracker tracker) {
+    public static void editItem(Input consoleInput, Tracker tracker) {
         System.out.println("=== Edit item ==");
         int currentId = consoleInput.askInt("press id of item you want to replace: ");
         Item item = new Item(consoleInput.askStr("press name of new item: "));
@@ -56,7 +56,7 @@ public class StartUi {
         }
     }
 
-    public static void deleteItem(ConsoleInput consoleInput, Tracker tracker) {
+    public static void deleteItem(Input consoleInput, Tracker tracker) {
         System.out.println("=== Delete item ===");
         boolean deleted =  tracker.delete(consoleInput.askInt("press "
                 + "id of item you want to delete: "));
@@ -67,7 +67,7 @@ public class StartUi {
         }
     }
 
-    public static void findById(ConsoleInput consoleInput, Tracker tracker) {
+    public static void findById(Input consoleInput, Tracker tracker) {
         System.out.println("=== Find item by id ===");
         Item finded = tracker.findById(consoleInput.askInt("press "
                 + "id of item you want to find"));
@@ -79,7 +79,7 @@ public class StartUi {
         }
     }
 
-    public static void findByName(ConsoleInput consoleInput, Tracker tracker) {
+    public static void findByName(Input consoleInput, Tracker tracker) {
         System.out.println("=== Find items by name ===");
         Item[] items = tracker.findByName(consoleInput.askStr("press "
                 + "name of item you want to find"));
@@ -105,7 +105,7 @@ public class StartUi {
     }
 
     public static void main(String[] args) {
-        ConsoleInput consoleInput = new ConsoleInput();
+        Input consoleInput = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUi().init(consoleInput, tracker);
     }
