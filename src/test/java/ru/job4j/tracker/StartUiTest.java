@@ -50,7 +50,7 @@ public class StartUiTest {
         Output out = new StubOutput();
         UserAction[] actions = {new ExitAction()};
         new StartUi(out).init(input, tracker, actions);
-        assertThat(out.toString(), is( "Menu." + System.lineSeparator() +
-                "0. Exit" + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator()
+               + "0. Exit" + System.lineSeparator()));
     }
 }
