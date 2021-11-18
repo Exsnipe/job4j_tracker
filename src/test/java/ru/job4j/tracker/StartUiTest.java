@@ -6,9 +6,6 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.Matchers.nullValue;
 
 public class StartUiTest {
-
-
-
     @Test
     public void whenCreateItem() {
         Tracker tracker = new Tracker();
