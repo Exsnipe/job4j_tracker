@@ -11,8 +11,9 @@ public class StartUiTest {
         Tracker tracker = new Tracker();
         String[]  answers = {"0", "new item in whenCreate test", "1"};
         Input stubInp = new StubInput(answers);
-        UserAction[] actions = {new CreateAction(), new ExitAction()};
-        new StartUi().init(stubInp, tracker, actions);
+        Output out = new ConsoleOutput();
+        UserAction[] actions = {new CreateAction(out), new ExitAction()};
+        new StartUi(out).init(stubInp, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("new item in whenCreate test"));
     }
 
@@ -21,8 +22,9 @@ public class StartUiTest {
         Tracker tracker = new Tracker();
         String[] answers = {"0", "first item", "1", "1", "edited item", "2"};
         Input stubInp = new StubInput(answers);
-        UserAction[] actions = {new CreateAction(), new EditAction(), new ExitAction()};
-        new StartUi().init(stubInp, tracker, actions);
+        Output out = new ConsoleOutput();
+        UserAction[] actions = {new CreateAction(out), new EditAction(out), new ExitAction()};
+        new StartUi(out).init(stubInp, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("edited item"));
     }
 
@@ -34,8 +36,21 @@ public class StartUiTest {
         int curId = item.getId();
         String[] answers = {"0", String.valueOf(curId), "1"};
         Input stubInp = new StubInput(answers);
-        UserAction[] actions = {new DeleteAction(),  new ExitAction()};
-        new StartUi().init(stubInp, tracker, actions);
+        Output out = new ConsoleOutput();
+        UserAction[] actions = {new DeleteAction(out),  new ExitAction()};
+        new StartUi(out).init(stubInp, tracker, actions);
         assertThat(tracker.findById(curId), is(nullValue()));
+    }
+
+    @Test
+    public void whenExit() {
+        Tracker tracker = new Tracker();
+        String[] answers = {"0"};
+        Input input = new StubInput(answers);
+        Output out = new StubOutput();
+        UserAction[] actions = {new ExitAction()};
+        new StartUi(out).init(input, tracker, actions);
+        assertThat(out.toString(), is( "Menu." + System.lineSeparator() +
+                "0. Exit" + System.lineSeparator()));
     }
 }
