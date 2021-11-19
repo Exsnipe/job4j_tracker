@@ -1,11 +1,9 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
-
-public class StartUi {
+public class StartUI {
     private final Output out;
 
-    public StartUi(Output out) {
+    public StartUI(Output out) {
         this.out = out;
     }
 
@@ -32,6 +30,6 @@ public class StartUi {
         UserAction[] action = {new CreateAction(out), new ShowAction(out), new EditAction(out),
         new DeleteAction(out), new FindByIdAction(out), new FindByNameAction(out),
         new ExitAction()};
-        new StartUi(out).init(input, tracker, action);
+        new StartUI(out).init(input, tracker, action);
     }
 }
