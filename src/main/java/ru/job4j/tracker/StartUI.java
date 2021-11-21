@@ -11,7 +11,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu(action);
-            int select = input.askInt("select: ");
+            int select = input.askInt("select:");
             run = action[select].execute(input, tracker);
         }
     }

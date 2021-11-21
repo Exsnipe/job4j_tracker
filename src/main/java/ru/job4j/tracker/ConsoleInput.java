@@ -6,7 +6,7 @@ public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
 
     public String askStr(String question) {
-        System.out.println(question + " ");
+        System.out.print(question + " ");
         return scanner.nextLine();
     }
 
