@@ -133,4 +133,18 @@ public class StartUITest {
                 + "0. Find item by id" + ln
                 + "1. Exit" + ln));
     }
+
+    @Test
+    public void whenInvalidExit() {
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {new ExitAction()};
+        String[] answers = {"1", "0"};
+        Input input = new StubInput(answers);
+        Output output = new StubOutput();
+        new StartUI(output).init(input, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is("Menu." + ln
+            + "0. Exit" + ln + "Wrong input. You can select 0 .. " + (actions.length - 1) + ln
+            + "Menu." + ln + "0. Exit" + ln));
+    }
 }
