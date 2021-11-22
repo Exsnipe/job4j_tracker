@@ -91,7 +91,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + ln
                 + "0. Show all items" + ln
                 + "1. Exit" + ln + "=== Show all items ===" + ln
-                + item.toString() + ln + item1.toString() + ln
+                + item + ln + item1 + ln
                 + "Menu." + ln + "0. Show all items" + ln
                 + "1. Exit" + ln));
     }
@@ -110,7 +110,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + ln
                 + "0. Find item by name" + ln
                 + "1. Exit" + ln + "=== Find items by name ===" + ln
-                + item.toString() + ln + "Menu." + ln
+                + item + ln + "Menu." + ln
                 + "0. Find item by name" + ln
                 + "1. Exit" + ln));
     }
@@ -120,7 +120,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("test");
         tracker.add(item);
-        String[] answers = {"0", "1", "1"};
+        String[] answers = {"0", String.valueOf(item.getId()), "1"};
         Input input = new StubInput(answers);
         Output out = new StubOutput();
         UserAction[] actions = {new FindByIdAction(out), new ExitAction()};
@@ -129,7 +129,7 @@ public class StartUITest {
         assertThat(out.toString(), is("Menu." + ln
                 + "0. Find item by id" + ln
                 + "1. Exit" + ln + "=== Find item by id ===" + ln
-                + "your item is: " + ln + item.toString() + ln + "Menu." + ln
+                + "your item is: " + ln + item + ln + "Menu." + ln
                 + "0. Find item by id" + ln
                 + "1. Exit" + ln));
     }
