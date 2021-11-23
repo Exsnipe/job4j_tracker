@@ -29,4 +29,13 @@ public class ValidateInputTest {
         int[] expected = {0, 1, 2, 3};
         assertArrayEquals(expected, selected);
     }
+
+    @Test
+    public void whenMinusInput() {
+        Output out = new StubOutput();
+        String[] answers = {"-1"};
+        Input in = new StubInput(answers);
+        Input input = new ValidateInput(out, in);
+        assertEquals(-1, input.askInt(""));
+    }
 }
