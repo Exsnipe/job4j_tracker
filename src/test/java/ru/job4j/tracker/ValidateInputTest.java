@@ -23,9 +23,10 @@ public class ValidateInputTest {
         Input in = new StubInput(answers);
         Input input = new ValidateInput(out, in);
         int[] selected = new int[answers.length];
-        for (int index = 0; index < selected.length; index++) {
-           selected[index] = input.askInt("");
-        }
+        selected[0] = input.askInt("");
+        selected[1] = input.askInt("");
+        selected[2] = input.askInt("");
+        selected[3] = input.askInt("");
         int[] expected = {0, 1, 2, 3};
         assertArrayEquals(expected, selected);
     }

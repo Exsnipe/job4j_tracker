@@ -2,7 +2,6 @@ package ex;
 
 public class FindE1 {
     public static int indexOf(String[] array, String key) throws ElementNotFoundException {
-        int rsl = -1;
         for (int index = 0; index < array.length; index++) {
             if (array[index].equals(key)) {
                 return index;
