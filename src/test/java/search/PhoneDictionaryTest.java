@@ -41,4 +41,12 @@ public class PhoneDictionaryTest {
         ArrayList<Person> result = phoneDictionary.find("risogl");
         assertThat(result.get(0).getPhone(), is("133479345"));
     }
+
+    @Test
+    public void whenFindNothing() {
+        PhoneDictionary phoneDictionary = new PhoneDictionary();
+        phoneDictionary.add(new Person("Dima", "Tokarev", "133479345", "Borisoglebsk"));
+        ArrayList<Person> result = phoneDictionary.find("protect");
+        assertTrue(result.isEmpty());
+    }
 }
