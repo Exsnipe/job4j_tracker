@@ -9,7 +9,7 @@ public class ConvertListToArray {
         int row = 0, cell = 0;
         for (int num: list) {
             array[row][cell++] = num;
-            if (cell == 3) {
+            if (cell == cells) {
                 cell = 0;
                 row++;
             }
