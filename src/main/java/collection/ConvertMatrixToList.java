@@ -7,9 +7,9 @@ import java.util.List;
 public class ConvertMatrixToList {
     public List<Integer> toList(int[][] array) {
         List<Integer> list = new ArrayList<>();
-        for (int row = 0; row < array.length; row++) {
-            for (int cell = 0; cell < array[row].length; cell++) {
-                list.add(array[row][cell]);
+        for (int[] num : array) {
+            for (int number : num) {
+                list.add(number);
             }
         }
         return list;
