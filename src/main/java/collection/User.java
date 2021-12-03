@@ -21,10 +21,8 @@ public class User implements Comparable<User> {
 
     @Override
     public int compareTo(User another) {
-        if (name.equals(another.name)) {
-            return Integer.compare(age, another.age);
-        }
-        return name.compareTo(another.name);
+        int rsl = name.compareTo(another.name);
+        return rsl == 0 ? Integer.compare(age, another.age) : rsl;
     }
 
     @Override
@@ -42,5 +40,13 @@ public class User implements Comparable<User> {
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
+    }
+
+    @Override
+    public String toString() {
+        return "User{"
+                + "name='" + name + '\''
+                + ", age=" + age
+                + '}';
     }
 }
