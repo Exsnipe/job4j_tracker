@@ -3,13 +3,14 @@ package lambda;
 import java.util.function.Supplier;
 
 public class ScopeInside {
+    private static int total;
+
     public static void main(String[] args) {
-        int[] number = {1, 2, 3};
-        int total = 0;
-        for (int i = 0; i < number.length; i++) {
-            int num = i;
-            total += add(
-                    () -> num
+        int[] numbers = {1, 2, 3};
+        total = 0;
+        for (int number : numbers) {
+            total = add(
+                    () -> number + total
             );
         }
         System.out.println(total);
