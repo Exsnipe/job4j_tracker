@@ -10,7 +10,9 @@ public class Profiles {
             .compareTo(o2.getCity());
 
     public List<Address> collect(List<Profile> profiles) {
-        return profiles.stream().map(profile -> profile.getAddress()).collect(Collectors.toList());
+        return profiles.stream()
+                .map(Profile::getAddress)
+                .collect(Collectors.toList());
     }
 
     public List<Address> collectSortWithoutDuplicate(List<Profile> profiles) {
