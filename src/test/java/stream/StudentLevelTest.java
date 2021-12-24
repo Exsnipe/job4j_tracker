@@ -34,8 +34,8 @@ public class StudentLevelTest {
     public void whenHasNull() {
         List<Stud> input = new ArrayList<>();
         input.add(null);
-        input.add(new Stud("Pety",28));
-        List<Stud> expected = List.of(new Stud("Pety",28));
+        input.add(new Stud("Pety", 28));
+        List<Stud> expected = List.of(new Stud("Pety", 28));
         assertThat(StudentLevel.levelOf(input, 10), is(expected));
     }
 }
