@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class CollegeStream {
-    private final Map<Student, Set<Subject>> students;
+  /*  private final Map<Student, Set<Subject>> students;
 
     public CollegeStream(Map<Student, Set<Subject>> students) {
         this.students = students;
@@ -43,5 +43,5 @@ public class CollegeStream {
         Subject english = college.findSubject("000001", "English");
         System.out.println(english);
         System.out.println("Оценка по найденному предмету: " + english.getScore());
-    }
+    } */
 }

@@ -1,6 +1,7 @@
 package stream.list;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public class College {
@@ -10,26 +11,30 @@ public class College {
         this.students = students;
     }
 
-    public Student findStudent(String account) {
-        for (Student student : students.keySet()) {
+    public Optional<Student> findStudent(String account) {
+        Optional<Student> rsl = Optional.empty();
+        for (var student : students.keySet()) {
             if (student.getAccount().equals(account)) {
-                return student;
+                rsl = Optional.of(student);
+                break;
             }
         }
-        return null;
+        return rsl;
     }
 
-    public Subject findSubject(String account, String subject) {
-        Student currentStudent = findStudent(account);
-        if (currentStudent != null) {
-            Set<Subject> subjects = students.get(currentStudent);
-            for (Subject subj : subjects) {
+    public Optional<Subject> findSubject(String account, String subject) {
+        Optional<Student> currentStudent = findStudent(account);
+        Optional<Subject> rsl = Optional.empty();
+        if (currentStudent.isPresent()) {
+            Set<Subject> subjects = students.get(currentStudent.get());
+            for (var subj : subjects) {
                 if (subj.getName().equals(subject)) {
-                    return subj;
+                    rsl = Optional.of(subj);
+                    break;
                 }
             }
         }
-        return null;
+        return rsl;
     }
 
     public static void main(String[] args) {
@@ -40,10 +45,10 @@ public class College {
                 )
         );
         College college = new College(students);
-        Student student = college.findStudent("000001");
+        Optional<Student> student = college.findStudent("000001");
         System.out.println("Найденный студент: " + student);
-        Subject english = college.findSubject("000001", "English");
+        Optional<Subject> english = college.findSubject("000001", "English");
         System.out.println(english);
-        System.out.println("Оценка по найденному предмету: " + english.getScore());
+        System.out.println("Оценка по найденному предмету: " + english.get().getScore());
     }
 }
