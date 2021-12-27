@@ -43,12 +43,10 @@ public class BankService {
      * пользователя в системе нет
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        rsl = users.keySet()
+        return users.keySet()
                 .stream()
                 .filter(u -> u.getPassport().equals(passport))
                 .findFirst();
-            return rsl;
     }
 
     /**
@@ -61,14 +59,12 @@ public class BankService {
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            Account account = users.get(user.get())
+            return users.get(user.get())
                     .stream()
                     .filter(a -> a.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
-            return Optional.of(account);
+                    .findFirst();
         }
-        return null;
+        return Optional.empty();
     }
 
     /**
@@ -83,11 +79,11 @@ public class BankService {
      */
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport,
                                  String destRequisite, double amount) {
-        Account outCome = findByRequisite(srcPassport, srcRequisite).get();
-        Account inCome = findByRequisite(destPassport, destRequisite).get();
-        if (outCome != null && inCome != null && outCome.getBalance() >= amount) {
-            outCome.setBalance(outCome.getBalance() - amount);
-            inCome.setBalance(inCome.getBalance() + amount);
+        Optional<Account> outCome = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> inCome = findByRequisite(destPassport, destRequisite);
+        if (outCome.isPresent() && inCome.isPresent() && outCome.get().getBalance() >= amount) {
+            outCome.get().setBalance(outCome.get().getBalance() - amount);
+            inCome.get().setBalance(inCome.get().getBalance() + amount);
             return true;
         }
         return false;
