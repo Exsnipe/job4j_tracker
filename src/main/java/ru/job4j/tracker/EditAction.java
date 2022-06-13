@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
+
 public class EditAction implements UserAction {
     private final Output out;
 
@@ -13,11 +15,11 @@ public class EditAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store store) throws SQLException {
         out.println("=== Edit item ==");
         int currentId = input.askInt("press id of item you want to replace:");
         Item item = new Item(input.askStr("press name of new item: "));
-        if (tracker.replace(currentId, item)) {
+        if (store.replace(currentId, item)) {
             out.println("suссed");
         } else {
             out.println("There are no items with such id!");

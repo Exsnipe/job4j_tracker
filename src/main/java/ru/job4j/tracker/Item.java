@@ -36,6 +36,10 @@ public class Item {
         return created;
    }
 
+   public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
     public int getId() {
         return id;
     }
