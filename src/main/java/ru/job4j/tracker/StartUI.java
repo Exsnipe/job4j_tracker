@@ -36,10 +36,10 @@ public class StartUI {
         Output out = new ConsoleOutput();
         Input consoleInput = new ConsoleInput();
         Input input = new ValidateInput(out, consoleInput);
-        MemTracker memTracker = new MemTracker();
+        Store tracker = new SqlTracker();
         List<UserAction> action = new ArrayList<>(Arrays.asList(new CreateAction(out),
                 new ShowAction(out), new EditAction(out), new DeleteAction(out),
                 new FindByIdAction(out), new FindByNameAction(out), new ExitAction()));
-        new StartUI(out).init(input, memTracker, action);
+        new StartUI(out).init(input, tracker, action);
     }
 }
