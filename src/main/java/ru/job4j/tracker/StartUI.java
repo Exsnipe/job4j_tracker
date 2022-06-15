@@ -32,14 +32,17 @@ public class StartUI {
         }
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         Output out = new ConsoleOutput();
         Input consoleInput = new ConsoleInput();
         Input input = new ValidateInput(out, consoleInput);
-        Store tracker = new SqlTracker();
-        List<UserAction> action = new ArrayList<>(Arrays.asList(new CreateAction(out),
-                new ShowAction(out), new EditAction(out), new DeleteAction(out),
-                new FindByIdAction(out), new FindByNameAction(out), new ExitAction()));
-        new StartUI(out).init(input, tracker, action);
+        try (SqlTracker tracker = new SqlTracker()) {
+            List<UserAction> action = new ArrayList<>(Arrays.asList(new CreateAction(out),
+                    new ShowAction(out), new EditAction(out), new DeleteAction(out),
+                    new FindByIdAction(out), new FindByNameAction(out), new ExitAction()));
+            new StartUI(out).init(input, tracker, action);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }
