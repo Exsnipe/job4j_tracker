@@ -44,7 +44,9 @@ public class SqlTrackerTest {
 
     @AfterClass
     public static void closeConnection() throws SQLException {
-        connection.close();
+        if (connection != null) {
+            connection.close();
+        }
     }
 
     @After
