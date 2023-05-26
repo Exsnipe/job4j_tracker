@@ -11,7 +11,6 @@ public class AttributeUsage {
         Path file = Paths.get("Attributes.txt");
         BasicFileAttributes attributes = null;
         try {
-           // Files.createFile(file);
             attributes = Files.readAttributes(file, BasicFileAttributes.class);
         } catch (IOException ioException) {
             ioException.printStackTrace();
