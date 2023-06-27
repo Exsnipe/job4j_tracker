@@ -16,7 +16,7 @@ public class FindByNameAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Store store) throws SQLException {
+    public boolean execute(Input input, Store store) {
         out.println("=== Find items by name ===");
         List<Item> items = store.findByName(input.askStr("press "
                 + "name of item you want to find"));

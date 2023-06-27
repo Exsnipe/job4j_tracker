@@ -15,7 +15,7 @@ public class FindByIdAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Store store) throws SQLException {
+    public boolean execute(Input input, Store store) {
         out.println("=== Find item by id ===");
         Item finded = store.findById(input.askInt("press "
                 + "id of item you want to find:"));

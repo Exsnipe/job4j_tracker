@@ -15,7 +15,7 @@ public class CreateAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Store store) throws SQLException {
+    public boolean execute(Input input, Store store) {
         out.println("===Create a new item===");
         Item item = new Item(input.askStr("Enter name:"));
         store.add(item);
